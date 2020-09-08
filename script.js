@@ -25,24 +25,46 @@ fetch(url, {
   })
   .then((data) => {
     console.log(data);
-    for (let film of data) {
+    array = data.docs;
+    console.log(array);
+    array.forEach((character) => {
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
 
       const h1 = document.createElement('h1');
-      h1.textContent = film.title;
+      h1.textContent = character.name;
 
-      const p = document.createElement('p');
-      film.description = film.description.substring(0, 300);
-      p.textContent = `${film.description}...`;
+      const ul = document.createElement('ul');
+      const li = document.createElement('li');
+      // character.spouse = character.description.substring(0, 300);
+      li.textContent = `Spouse: ${character.spouse}`;
 
       container.appendChild(card);
       card.appendChild(h1);
-      card.appendChild(p);
-      console.log(film.title);
-      console.log(film.description);
-    }
+      card.appendChild(ul);
+      card.appendChild(li);
+    });
   })
+  //   for (let character of data) {
+  //     const card = document.createElement('div');
+  //     card.setAttribute('class', 'card');
+
+  //     const h1 = document.createElement('h1');
+  //     h1.textContent = character.name;
+
+  //     const ul = document.createElement('ul');
+  //     const li = document.createElement('li');
+  //     character.spouse = character.description.substring(0, 300);
+  //     li.textContent = `Spouse: ${character.spouse}...`;
+
+  //     container.appendChild(card);
+  //     card.appendChild(h1);
+  //     card.appendChild(ul);
+  //     card.appendChild(li);
+  //     console.log(character.name);
+  //     console.log(character.spouse);
+  //   }
+  // })
 
   .catch((err) => {
     console.log(err);
