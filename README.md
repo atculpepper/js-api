@@ -7,5 +7,5 @@
 - No dependencies are needed!
 
 #### Screenshot
-<img src="LOTR_screenshot.jpeg" alt="Home Page" />
+<img src="/LOTR_screenshot.jpeg" alt="Home Page" />
 
