@@ -35,9 +35,15 @@ fetch(url, {
       h1.textContent = character.name;
 
       const ul = document.createElement('ul');
+      ul.setAttribute('class', 'ul');
       const li = document.createElement('li');
+      li.setAttribute('class', 'li');
       // character.spouse = character.description.substring(0, 300);
-      li.textContent = `Spouse: ${character.spouse}`;
+      if (!character.spouse) {
+        li.textContent = null;
+      } else {
+        li.textContent = `Spouse: ${character.spouse}`;
+      }
 
       container.appendChild(card);
       card.appendChild(h1);
