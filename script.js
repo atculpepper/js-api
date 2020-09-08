@@ -1,7 +1,7 @@
 const app = document.getElementById('root');
 console.log(app);
 const logo = document.createElement('img');
-logo.src = 'ghibli_logo.png';
+logo.src = 'LOTR3.png';
 
 const container = document.createElement('div');
 container.setAttribute('class', 'container');
@@ -9,12 +9,22 @@ container.setAttribute('class', 'container');
 app.appendChild(logo);
 app.appendChild(container);
 
-fetch('https://ghibliapi.herokuapp.com/films')
+const token = 't9PKHG9COdTM_N1qMGXI';
+const url = 'https://the-one-api.dev/v2/character?sort=name:asc';
+const bearer = 'Bearer ' + token;
+
+fetch(url, {
+  method: 'GET',
+  withCredentials: true,
+  headers: {
+    Authorization: bearer,
+  },
+})
   .then((response) => {
     return (data = response.json());
   })
   .then((data) => {
-    // console.log(data);
+    console.log(data);
     for (let film of data) {
       const card = document.createElement('div');
       card.setAttribute('class', 'card');
